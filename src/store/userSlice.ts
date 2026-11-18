@@ -18,7 +18,7 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     authenticateAction: (state) => {
-      state.loading = true;
+      state.loading = true; //
     },
     authenticatedAction: (state, action: PayloadAction<User | undefined>) => {
       state.user = action.payload;
