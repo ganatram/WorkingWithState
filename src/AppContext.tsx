@@ -5,13 +5,11 @@ type State = {
   user: undefined | User;
   permissions: undefined | string[];
   loading: boolean;
-  location: string;
 };
 const initialState: State = {
   user: undefined,
   permissions: undefined,
   loading: false,
-  location: 'some location',
 };
 
 type Action =
@@ -61,7 +59,7 @@ type Props = {
   children: ReactNode;
 };
 export function AppProvider({ children }: Props) {
-  const [{ user, permissions, loading, location }, dispatch] = useReducer(reducer, initialState);
+  const [{ user, permissions, loading }, dispatch] = useReducer(reducer, initialState);
   return (
     <AppContext.Provider
       value={{
@@ -69,7 +67,6 @@ export function AppProvider({ children }: Props) {
         permissions,
         loading,
         dispatch,
-        location,
       }}
     >
       {children}
