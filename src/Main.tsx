@@ -1,17 +1,9 @@
-import { User } from './api/authenticate';
 import { Content } from './Content';
-/* import { AppContext } from './AppContext';
-import { useContext } from 'react'; */
-import { useAppContext } from './AppContext';
-
-type Props = {
-  user: undefined | User;
-  permissions: undefined | string[];
-};
+import { useSelector } from 'react-redux';
+import { RootState } from './store/store';
 
 export function Main() {
-  // const { user } = useContext(AppContext);
-  const { user } = useAppContext();
+  const user = useSelector((state: RootState) => state.user.user);
 
   return (
     <main className="py-8">
