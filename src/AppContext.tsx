@@ -61,7 +61,7 @@ type Props = {
   children: ReactNode;
 };
 export function AppProvider({ children }: Props) {
-  const [{ user, permissions, loading }, dispatch] = useReducer(reducer, initialState);
+  const [{ user, permissions, loading, location }, dispatch] = useReducer(reducer, initialState);
   return (
     <AppContext.Provider
       value={{
@@ -69,6 +69,7 @@ export function AppProvider({ children }: Props) {
         permissions,
         loading,
         dispatch,
+        location,
       }}
     >
       {children}
